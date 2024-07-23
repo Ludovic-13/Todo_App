@@ -1,5 +1,5 @@
 # TO-DO LIST
-#### Video Demo: [Demo](https://youtu.be/Rx2tnPOETB0)
+#### Demo: [Demo](https://todo-app-theta-green-74.vercel.app/)
 #### Description:
 This project allows the user to add, view, edit tasks they have to complete or delete tasks they have completed in a list.
 
