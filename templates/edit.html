@@ -1,0 +1,42 @@
+{% extends "layout.html" %} {% block title %} Edit {% endblock %} {% block main
+%}
+<div class="container-fluid">
+  <form action="/edit" method="post">
+    <div class="mb-3">
+      <label for="item-input" class="form-label max-char-reached"
+        >Maximum number of characters reached (1 - {{max_chars}} characters
+        allowed)</label
+      >
+
+      <div class="dropdown">
+        <button
+          class="btn dropdown-toggle"
+          type="button"
+          id="dropdownMenuButton1"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
+          Select an item
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+          {% for item in items %}
+          <li id="{{item[0]}}" class="dropdown-item">{{item[1]}}</li>
+          <input class="id-input" name="id" value="" type="hidden">
+          {% endfor %}
+        </ul>
+      </div>
+
+      <input
+        id="item-input"
+        name="item"
+        type="text"
+        class="form-control"
+        autofocus
+        autocomplete="off"
+        placeholder="Edit Item"
+      >
+      <input type="submit" class="btn" value="EDIT">
+    </div>
+  </form>
+</div>
+{% endblock %}

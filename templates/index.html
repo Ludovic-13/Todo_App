@@ -1,0 +1,41 @@
+{% extends "layout.html" %} {% block title %} Home {% endblock %} {% block main
+%} {% with messages = get_flashed_messages() %} {% if messages %}
+
+<div class="flash-message-container">
+  {% for message in messages %}
+
+  <h1 class="flash-message">{{message}}</h1>
+
+  {% endfor %} {% endif %} {% endwith %}
+</div>
+
+<div class="container-fluid">
+  <form action="/" method="post">
+    <div class="mb-3">
+      <label for="item-input" class="form-label max-char-reached"
+        >Maximum number of characters reached (1 - {{max_chars}} characters
+        allowed)</label
+      >
+      <input
+        id="item-input"
+        name="item"
+        type="text"
+        class="form-control"
+        autofocus
+        autocomplete="off"
+        placeholder="Add Item"
+      >
+      <input type="submit" class="btn" value="ADD">
+    </div>
+  </form>
+
+  <div class="list-container mb-3">
+    <h2 class="list-title">Items</h2>
+    <ul class="list-group list-group-flush">
+      {% for item in items %}
+      <li class="list-group-item">{{item[1]}}</li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>
+{% endblock%}

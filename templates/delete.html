@@ -1,0 +1,19 @@
+{% extends "layout.html" %} {% block title %} Delete {% endblock %} {% block
+main %}
+
+<div class="container-fluid">
+  <h2 class="list-title">Select one or more items</br>(Hold Ctrl to select multiple items at once)</h2>
+
+  <form id="delete" action="/delete" method="post">
+    <select name="id" id="multiple-select-list" class="form-select" multiple aria-label="multiple select">
+      {% for item in items %}
+        <option value={{item[0]}}>{{item[1]}}</option>
+      {% endfor %}
+    </select>
+    
+    <input type="submit" class="btn" value="DELETE">
+  </form>
+  
+</div>
+
+{% endblock %}
